@@ -91,7 +91,7 @@ if [[ "${machine}" = "Linux" ]]; then
 
 ####### CASE B: LINUX AND/OR LINUX-BASED SUPERCOMPUTER ENVIRONMENT (RUN ON LINUX)
 
-sed -n ''"$line1"','"$line2"'d' "$MY_INPUT_FILE" > "$MY_OUTPUT_FILE"
+sed -n ''"$line1"','"$line2"'p' "$MY_INPUT_FILE" > "$MY_OUTPUT_FILE"
 
 fi
 
