@@ -1,10 +1,9 @@
 #!/bin/sh
 
-## USAGE: extractLines.sh <startLine> <endLine> -i <inputFile> -o <outputFile>
-
 MY_INPUT_FILE=file.txt
 MY_OUTPUT_FILE=output.txt
 
+## USAGE: extractLines.sh <startLine> <endLine> -i <inputFile> -o <outputFile>
 Usage="Usage: $(basename "$0") [Help: -h help] <startLine> <endLine> [Options: -i o]
  ## Help:
   -h   help text (also: -help)
