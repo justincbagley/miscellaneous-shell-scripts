@@ -21,10 +21,10 @@ Usage="Usage: $(basename "$0") [Help: -h help] <startLine> <endLine> [Options: -
  ## EXAMPLES: 
  ## Practical usage example (with description below):
 
- ./extractLines.sh 1 106 -i ./matrix.txt -o ./matrix_minus106.txt
+ ./extractLines.sh 1 106 -i ./matrix.txt -o ./matrix_firsts106.txt
  
  The above reads input file named 'matrix.txt' and directs the program to extract the first
- 106 lines of the file and save them in a new file named 'matrix_minus106.txt'. Notice
+ 106 lines of the file and save them in a new file named 'matrix_first106.txt'. Notice
  that -i and -o flags must be followed by name of <inputFile> and <outputFile>, respectively.
  Though not mandatory positional parameters, these flags will usually need to be passed, as
  <inputFile> and <outputFile> defaults for the script are unlikely to be appropriate.
