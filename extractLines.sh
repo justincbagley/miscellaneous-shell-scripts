@@ -73,8 +73,8 @@ case "${unameOut}" in
     MINGW*)     machine=MinGw;;
     *)          machine="UNKNOWN:${unameOut}"
 esac
-echo "INFO      | $(date) |          System: ${machine} "
-echo "INFO      | $(date) |          ... "
+#echo "INFO      | $(date) |          System: ${machine} "
+#echo "INFO      | $(date) |          ... "
 
 
 
