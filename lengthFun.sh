@@ -16,7 +16,9 @@ echo "INFO      | $(date) | STEP #1: SETUP. "
 
 ## Input sequence file is "$1" and must be FASTA format, (sequential or interleaved with a 
 ## hard wrap of some length on each line of each sequence. Fourth sed should account for 
-## newlines/blank lines without spaces if present between sequences.
+## newlines/blank lines without spaces if present between sequences. NOTE that this script
+## modifies the original file and outputs sequence lengths into a file with the default
+## filename 'lengths_out.txt'. I hope to add options to customize it soon.
 
 file="$1"
 
