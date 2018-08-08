@@ -31,6 +31,11 @@ file="$1"
 	sed -i '' 's/^[Nn\>]{2,}//g; s/[Nn\>]{2,}$//g' "$file";
 
 
+## Remove ">" markers:
+
+	sed -i '' 's/\>//g' "$file";
+
+
 ## Generate and run length function on edited sequence file:
 
 lengthFun () {
