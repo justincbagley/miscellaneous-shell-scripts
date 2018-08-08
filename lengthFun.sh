@@ -14,13 +14,24 @@ echo "INFO      | $(date) | STEP #1: SETUP. "
 }
 
 
-## Input file is "$1" and must be FASTA format, either sequential or interleaved with a 
-## hard wrap of some length on each line of each sequence.
+## Input sequence file is "$1" and must be FASTA format, (sequential or interleaved with a 
+## hard wrap of some length on each line of each sequence. Fourth sed should account for 
+## newlines/blank lines without spaces if present between sequences.
 
 file="$1"
 
-sed -i '' 's/^/\>/g' "$file";
-sed -i '' 's/\n\>/\>/g' "$file";
+	sed -i '' 's/^/\>/g' "$file";
+	sed -i '' 's/\n\>/\>/g' "$file";
+	sed -i '' 's/\>\>[A-Za-z0-9\-\_\ \.]*\>/\n/g' "$file";
+	sed -i '' 's/^$\n//g' "$file";
+
+
+## Remove runs of Ns indicating missing data at the start or end of each sequence:
+
+	sed -i '' 's/^[Nn\>]{2,}//g; s/[Nn\>]{2,}$//g' "$file";
+
+
+## Generate and run length function on edited sequence file:
 
 lengthFun () {
   for line in $(cat "$1"); do 
