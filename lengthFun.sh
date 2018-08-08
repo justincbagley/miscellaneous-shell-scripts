@@ -21,20 +21,19 @@ echo "INFO      | $(date) | STEP #1: SETUP. "
 file="$1"
 
 	sed -i '' 's/^/\>/g' "$file";
-	sed -i '' 's/\n\>/\>/g' "$file";
-	sed -i '' 's/\>\>[A-Za-z0-9\-\_\ \.]*\>/\n/g' "$file";
-	sed -i '' 's/^$\n//g' "$file";
+	perl -p -i -e $'s/\n//g' "$file";	
+	perl -p -i -e $'s/\>\>[A-Za-z0-9\-\_\ \.]*\>/\n/g; s/\>\>[A-Za-z\.0-9\-\_]*\>/\n/g' "$file";
+	perl -p -i -e $'s/^$\n//g' "$file";
 
-
+	
 ## Remove runs of Ns indicating missing data at the start or end of each sequence:
 
-	sed -i '' 's/^[Nn\>]{2,}//g; s/[Nn\>]{2,}$//g' "$file";
+	perl -p -i -e 's/^[Nn\>]{2,}//g; s/[Nn\>]{2,}$//g' "$file";
 
 
 ## Remove ">" markers:
 
 	sed -i '' 's/\>//g' "$file";
-
 
 ## Generate and run length function on edited sequence file:
 
